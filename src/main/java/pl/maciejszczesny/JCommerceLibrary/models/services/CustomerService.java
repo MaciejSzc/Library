@@ -14,12 +14,26 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
+    public Iterable<CustomerEntity> getAll(){
+        return customerRepository.findAll();
+    }
 
     public CustomerResponse addCustomer(CustomerForm customerForm){
         CustomerEntity customerEntity = new CustomerEntity();
 
+        if(customerRepository.findCustomerBySurname(customerForm.getSurname()) && customerRepository.findCustomerByTelephone(customerForm.getMobile())){
+            return CustomerResponse.CUSTOMER_ALREADY_EXIST;
+        }
 
+        customerEntity.setName(customerForm.getName());
+        customerEntity.setSurname(customerEntity.getSurname());
+        customerEntity.setMobile(customerEntity.getMobile());
 
+        customerRepository.save(customerEntity);
+
+        return  CustomerResponse.CREATED;
 
     }
+
+    
 }
