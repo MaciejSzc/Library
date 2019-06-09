@@ -1,1 +1,5 @@
-"# Library" 
+Jako, ze termin to 9 czerwca, a dopiero 9 moglem usiasc do zadania, odsylam githuba z tym co mam.
+Termin wystawienia API - 11.06
+Termin wystawienia testów - 12.06
+
+Baza danych jest MySQL, w pliku read.me dolacze komendy w SQL, jak tworzyc poszczegolne tabele.
