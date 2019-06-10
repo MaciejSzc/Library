@@ -6,14 +6,16 @@ import org.springframework.stereotype.Repository;
 import pl.maciejszczesny.JCommerceLibrary.models.entities.CustomerEntity;
 @Repository
 public interface CustomerRepository extends CrudRepository<CustomerEntity, Integer> {
-//ToDo: one method , out of three
-    @Query(nativeQuery = true, value = "SELECT * FROM `customer` WHERE surname = ?1")
-    boolean findCustomerBySurname(String surname);
 
-    @Query(nativeQuery = true, value = "SELECT * FROM `customer` WHERE `name` = ?1")
-    CustomerEntity findCustomerByName(String name);
+    @Query(nativeQuery = true, value = "SELECT * FROM `customer` WHERE surname = ?1")
+    CustomerEntity findCustomerBySurname(String surname);
+
+
 
     @Query(nativeQuery = true, value = "SELECT * FROM `customer` WHERE mobile = ?1")
-    boolean findCustomerByTelephone(int mobile);
+    CustomerEntity findCustomerByTelephone(int mobile);
+
+    @Query(nativeQuery = true, value = "SELECT * FROM `customer` WHERE `id` = ?1")
+    CustomerEntity findCustomerById(int id);
 
 }

@@ -9,7 +9,7 @@ import pl.maciejszczesny.JCommerceLibrary.models.repositories.CustomerRepository
 @Service
 public class CustomerService {
     public enum CustomerResponse {
-        CREATED, CUSTOMER_ALREADY_EXIST;
+        CREATED, CUSTOMER_ALREADY_EXIST
     }
     @Autowired
     CustomerRepository customerRepository;
@@ -21,13 +21,13 @@ public class CustomerService {
     public CustomerResponse addCustomer(CustomerForm customerForm){
         CustomerEntity customerEntity = new CustomerEntity();
 
-        if(customerRepository.findCustomerBySurname(customerForm.getSurname()) && customerRepository.findCustomerByTelephone(customerForm.getMobile())){
+        if(customerRepository.findCustomerBySurname(customerForm.getSurname()) != null && customerRepository.findCustomerByTelephone(customerForm.getMobile())!=null){
             return CustomerResponse.CUSTOMER_ALREADY_EXIST;
         }
 
         customerEntity.setName(customerForm.getName());
-        customerEntity.setSurname(customerEntity.getSurname());
-        customerEntity.setMobile(customerEntity.getMobile());
+        customerEntity.setSurname(customerForm.getSurname());
+        customerEntity.setMobile(customerForm.getMobile());
 
         customerRepository.save(customerEntity);
 
@@ -35,5 +35,10 @@ public class CustomerService {
 
     }
 
-    
+    public void deleteCustomer(int id){
+        customerRepository.delete(customerRepository.findCustomerById(id));
+
+    }
+
+
 }

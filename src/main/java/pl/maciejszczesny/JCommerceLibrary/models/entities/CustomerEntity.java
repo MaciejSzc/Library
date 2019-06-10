@@ -15,4 +15,5 @@ public class CustomerEntity {
     private String name;
     private String surname;
     private int mobile;
+
 }

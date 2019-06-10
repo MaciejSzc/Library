@@ -5,7 +5,22 @@
     <title>All Customers</title>
 </head>
 <body>
-
+<table>
+ <th:block th:each="customer : ${customers}">
+    <tr>
+        <td th:text="${customer.getName()}"></td>
+        <td th:text="${customer.getSurname()}"></td>
+        <td th:text="${customer.getMobile()}"></td>
+        <td><a th:href="${'/delete/' + customer.getId()}" th:text="${'DELETE'}"></a></td>
+    </tr>
+ </th:block>
+</table>
+<br/>
+<br/>
+<button><a href="/customer/add">Add Customer</a></button>
+<button><a href="/book/book">Check Bookings</a></button>
+<button><a href="/book/all">All Books</a></button>
+<button><a href="/book/add">Add Book</a></button>
 
 </body>
 </html>

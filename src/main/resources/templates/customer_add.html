@@ -6,6 +6,15 @@
 </head>
 <body>
 <h1>Add customer:</h1>
+
+<th:block th:if="${customer != null}" th:switch="${customer}">
+    <h1 style="color:green" th:case="${customer.CREATED}" th:text="#{created}"></h1>
+    <h1 style="color:red" th:case="${customer.CUSTOMER_ALREADY_EXIST}" th:text="#{customer.already.exist}"></h1>
+</th:block>
+
+<!--<span style="color:red" th:text="${customer != null ? customer : ''}"></span> -->
+
+<br/><br/>
 <form action="/customer/add" method="post" th:object="${customerForm}">
 
     Name: <input type="text" th:field="*{name}"> <br/>
@@ -17,6 +26,12 @@
 
     <input type="submit" value="Add">
 </form>
+
+<br/>
+<button><a href="/customer/all">All Customers</a></button>
+<button><a href="book_book.html">Check Bookings</a></button>
+<button><a href="book_all.html">All Books</a></button>
+<button><a href="book_add.html">Add Book</a></button>
 
 </body>
 </html>
