@@ -1,5 +1,17 @@
-Jako, ze termin to 9 czerwca, a dopiero 9 moglem usiasc do zadania, odsylam githuba z tym co mam.
-Termin wystawienia API - 11.06
-Termin wystawienia testów - 12.06
+W chwili obecnej projekt pozwala na wyÅ›wietlanie,dodawanie i usuwanie klientow i ksiazek.
+Do tych funkcji wystawione jest API i testy.
 
-Baza danych jest MySQL, w pliku read.me dolacze komendy w SQL, jak tworzyc poszczegolne tabele.
+
+
+Baza danych jest MySQL:
+Najpierw musimy podlaczyc baze do projektu deklarujac odpowiednia sekwencje w 'application.properties".
+Na chwile obecna sa stworzone 2 tabele.
+
+Komenda pierwszej tabeli:
+
+
+Komenda drugiej tabeli:
+
+
+
+

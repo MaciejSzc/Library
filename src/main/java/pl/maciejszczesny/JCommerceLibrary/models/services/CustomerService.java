@@ -40,5 +40,10 @@ public class CustomerService {
 
     }
 
+   /* public void updateTelephone(int id, int mobile){
+        CustomerEntity customerEntity = customerRepository.findCustomerByTelephone(id);
+        customerEntity.setMobile(mobile);
+    }
+*/
 
 }

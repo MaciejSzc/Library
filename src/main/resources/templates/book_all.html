@@ -5,6 +5,23 @@
     <title>All books</title>
 </head>
 <body>
+<th:block th:each="book : ${books}">
+    <tr>
+        <td th:text="${book.getTitle()}"></td>
+        <td th:text="${book.getAuthor()}"></td>
+        <td th:text="${book.getId()}"></td>
+        <td><a th:href="${'/delete/book/' + book.getId()}" th:text="${'DELETE'}"></a></td>
+        <td><a th:href="${'/rent/book/' + book.getId()}" th:text="${'RENT'}"></a></td>
+        <br/>
+    </tr>
+</th:block>
+</table>
+<br/>
+<br/>
+<button><a href="/customer/add">Add Customer</a></button>
+<button><a href="/customer/all">All Customers</a></button>
+<button><a href="/book/book">Check Bookings</a></button>
+<button><a href="/book/add">Add Book</a></button>
 
 
 </body>
